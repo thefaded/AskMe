@@ -1,0 +1,25 @@
+<!-- Output information about user -->
+<div>
+  <h3>Name: <%= @user.name %></h3>
+  <h3>Username: @<%= @user.username %></h3>
+  <div>
+    <%= image_tag user_avatar(@user), alt: 'Avatar', style: 'width: 150px; border-radius: 50%;' %>
+  </div>
+</div>
+
+<!-- Simple output of all questions using partial -->
+<% @questions.each do |question| %>
+  <%= render partial: 'questions/question', object: question %>
+<% end %>
+
+<!-- Simple form for new question -->
+<%= form_for @new_question do |f| %>
+  <%= f.hidden_field :user_id %>
+  <div>
+    <%= f.label "Your question for @#{@user.username}" %>
+    <%= f.text_area :text %>
+  </div>
+  <div>
+    <%= submit_tag 'Ask question!' %>
+  </div>
+<% end %>

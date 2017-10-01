@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
   <head>
-    <title>AskMe</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AskMe – задай вопрос</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -10,5 +12,9 @@
 
   <body>
     <%= yield %>
+    <footer>
+      <h6>Footer</h6>
+      <h5>Made with love and Rails 5</h5>
+    </footer>
   </body>
 </html>
