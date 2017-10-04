@@ -7,6 +7,13 @@
   </div>
 </div>
 
+<!-- Example of i18n -->
+<div>
+  <div>Всего:
+    <%= @questions.count %>
+    <%= t('question', count: @questions.count)%>
+  </div>
+</div>
 <!-- Simple output of all questions using partial -->
 <% @questions.each do |question| %>
   <%= render partial: 'questions/question', object: question %>

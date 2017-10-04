@@ -4,18 +4,36 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(user_params)
+
+    if @user.save
+      # Redirecting with FLash Message
+      redirect_to root_url, notice: 'User successfully created!'
+    else
+      render 'new'
+    end
   end
 
   def edit
   end
 
   def show
-    @user = User.new(name: 'Daniil', email: 'a@a.ru', username: 'poddubstep')
-    @questions = [Question.new(text: 'How are you?', created_at: Date.parse('01.10.2017')),
-      Question.new(text: 'What is ur hobby??', created_at: Date.parse('01.10.2017'))]
-    @questions[0].answer = "I'm fine"
-    @questions[1].answer = "Coding"
+    @user = User.find(params[:id])
+    @questions = @user.questions.order(created_at: :desc)
 
-    @new_question = Question.new
+    @new_question = @user.questions.build
+  end
+
+  private
+  def user_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :username, :avatar_url)
+  end
+
+  def signed_in?
+    return false
   end
 end

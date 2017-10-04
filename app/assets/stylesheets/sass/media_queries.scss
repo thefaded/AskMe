@@ -1,0 +1,85 @@
+// Variables from Bootstrap 4.0
+$xs: '(min-width: 0px)'; // Range: [0px .. 575px]
+$sm: '(min-width: 576px)'; // Range: [576px .. 767px]
+$md: '(min-width: 768px)'; // Range: [768px .. 991px]
+$lg: '(min-width: 992px)'; // Range: [992px .. 1199px]
+$xl: '(min-width: 1200px)'; // Range: [1200px .. INF]
+
+// Custom variables;
+$mobile: '(max-width: 767px)'; // Range: [0px .. 767px]
+$tablet: '(min-width: 768px)'; // Range: [768px .. 1199px]
+$desktop: '(min-width: 1200px)'; // Range: [1200px .. INF]
+
+// Container variables;
+$sm-container: 540px;
+$md-container: 720px;
+$lg-container: 960px;
+$xl-container: 1140px;
+$tablet-container: 720px;
+$desktop-container: 1140px;
+
+// For example: respond-to($md) ==> your code will be available for $md and up: $md, $lg, $xl
+@mixin respond-to($media) {
+  @media only screen and #{$media} {
+    @content;
+  }
+}
+
+// Your code will be available only for current width
+@mixin respond-only($media) {
+  @if $media == '(min-width: 0px)' {
+    @media only screen and (max-width: 575px) {
+      @content;
+    }
+  } @else if $media == '(min-width: 576px)' {
+    @media only screen and (min-width: 576px) and (max-width: 767px) {
+      @content;
+    }
+  } @else if $media == '(min-width: 768px)' {
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if $media == '(min-width: 992px)' {
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if $media == '(min-width: 1200px)' {
+    @media only screen and (min-width: 1200px) {
+      @content;
+    }
+  } @else if $media == '(max-width: 767px)' {
+    @media only screen and (max-width: 766px) {
+      @content;
+    }
+  }
+}
+
+// Creates container from width
+@mixin container-create($width) {
+  margin: 0 auto;
+
+  @if $width == '(min-width: 576px)' {
+    max-width: $sm-container;
+  } @else if $width == '(min-width: 768px)' {
+    max-width: $md-container;
+  } @else if $width == '(min-width: 992px)' {
+    max-width: $lg-container;
+  } @else if $width == '(min-width: 1200px)' {
+    max-width: $xl-container;
+  }
+}
+
+// How to use
+// body {
+//   @include respond-to($phone) {
+//     color: white;
+//   }
+//
+//   @include respond-to($tablet) {
+//     color: red;
+//   }
+//
+//   @include respond-to($desktop) {
+//     color: yellow;
+//   }
+// }

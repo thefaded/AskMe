@@ -1,0 +1,54 @@
+.header {
+  $height: 50px;
+  height: $height;
+  background-color: #fff;
+  color: $orange;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  // box-shadow: 0 2px 3px;
+  &__fix {
+    padding-bottom: $height;
+  }
+
+  &__logo {
+    font-weight: 700;
+    font-size: 2em;
+    order: 2;
+  }
+
+  &__link {
+    order: 1;
+
+    &:last-child {
+      order: 3;
+    }
+  }
+
+  @include respond-to($tablet) {
+    // Use Container
+    @include container-create($tablet);
+
+    justify-content: flex-start;
+    order: initial;
+
+    &__logo {
+      order: initial;
+      margin-right: auto;
+    }
+
+    &__link {
+      order: initial;
+
+      &:last-child {
+        order: initial;
+      }
+    }
+  }
+}
+
+.header-container {
+  background-color: white;
+}

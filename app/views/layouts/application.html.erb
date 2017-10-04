@@ -4,17 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AskMe – задай вопрос</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,700" rel="stylesheet">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'sass/style', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="font-family: 'Nunito', sans-serif;">
+    <!-- Printing Flash Message -->
+    <%= render partial: 'application/flash' %>
+    <!-- Fixed header -->
+    <%= render partial: 'application/header' %>
+
     <%= yield %>
-    <footer>
-      <h6>Footer</h6>
-      <h5>Made with love and Rails 5</h5>
-    </footer>
+    
+    <!-- Footer -->
+    <%= render partial: 'application/footer' %>
   </body>
 </html>

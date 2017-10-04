@@ -1,0 +1,7 @@
+<% if @user.errors.any?  %>
+  <div>
+    <% for message in @user.errors.full_messages  %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+<% end  %>

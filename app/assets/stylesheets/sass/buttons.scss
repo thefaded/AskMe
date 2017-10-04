@@ -1,0 +1,18 @@
+// Header action button
+.header__button {
+  display: inline-block;
+  vertical-align: top;
+
+  color: $orange;
+  font-size: 16px;
+  border-radius: 2px;
+  font-weight: 700;
+  padding: 5px 12px;
+  margin: 0 5px;
+
+  &:hover {
+    background-color: $orange;
+    color: white;
+    text-decoration: none;
+  }
+}
