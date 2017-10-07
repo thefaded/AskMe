@@ -1,0 +1,16 @@
+<!-- Header for not logged in user -->
+<div class="header-container   fixed-top">
+  <div class="header">
+    <div class="header__logo">
+      <%= link_to 'AskMe', root_url, class: 'header__logo--plain' %>
+    </div>
+    <div class="header__link">
+      <%= link_to 'Sign Up', signup_path, class: 'header__button' %>
+    </div>
+    <div class="header__link">
+      <%= link_to 'Log In', login_path, class: 'header__button' %>
+    </div>
+  </div>
+</div>
+
+<div class="header__fix"></div>

@@ -1,0 +1,20 @@
+<div class="">
+  <h1>Welcome to AskMe</h1>
+  <h4>Please log in or register</h4>
+
+  <div class="">
+    <%= form_tag sessions_path do %>
+      <div>
+        Email<br>
+        <!-- params[:email] == input placeholer -->
+        <%= text_field_tag :email, params[:email] %>
+      </div>
+      <div>
+        <%= password_field_tag :password %>
+      </div>
+      <div>
+        <%= submit_tag "Log in" %>
+      </div>
+    <% end %>
+  </div>
+</div>

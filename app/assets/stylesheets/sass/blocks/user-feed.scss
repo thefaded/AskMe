@@ -1,0 +1,29 @@
+.user-feed {
+  padding-top: 30px;
+  padding-bottom: 15px;
+
+  &__avatar {
+    text-align: center;
+    margin-bottom: 10px;
+
+    &--rounded {
+      border-radius: 50%;
+      width: 90px;
+    }
+  }
+
+  &__name {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &__username {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  @include respond-to($tablet) {
+    @include container-create($tablet);
+  }
+}

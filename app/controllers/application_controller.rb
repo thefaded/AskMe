@@ -3,7 +3,19 @@ class ApplicationController < ActionController::Base
 
   before_action :set_locale
 
+  helper_method :current_user
+
   private
+
+  def current_user
+    p "Current user: "
+    p session[:user_id]
+    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+  end
+
+  def reject_user
+    redirect_to root_url
+  end
 
   def set_locale
     if I18n.available_locales.include?(params[:locale])

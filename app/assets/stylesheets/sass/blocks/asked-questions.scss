@@ -1,0 +1,23 @@
+.asked-questions {
+  padding-top: 10px;
+
+  &__question {
+    border-top: 8px solid #f2f2f9;
+    background-color: #fff;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+
+    &-title {
+      font-weight: bold;
+      font-size: 19px;
+      color: $black;
+      margin-bottom: 10px;
+    }
+    &-date {
+      color: $gray-disabled;
+      font-size: 12px;
+    }
+  }
+}

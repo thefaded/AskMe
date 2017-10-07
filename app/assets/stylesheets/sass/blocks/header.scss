@@ -8,11 +8,6 @@
   justify-content: space-between;
   align-items: center;
 
-  // box-shadow: 0 2px 3px;
-  &__fix {
-    padding-bottom: $height;
-  }
-
   &__logo {
     font-weight: 700;
     font-size: 2em;
@@ -28,11 +23,9 @@
   }
 
   @include respond-to($tablet) {
-    // Use Container
     @include container-create($tablet);
 
     justify-content: flex-start;
-    order: initial;
 
     &__logo {
       order: initial;
@@ -50,5 +43,25 @@
 }
 
 .header-container {
+  @include boxShadow();
   background-color: white;
+}
+
+.header__logo--plain {
+  color: $orange;
+
+  &:hover {
+    color: red;
+    opacity: 0.8;
+    transition: 1s;
+    text-decoration: none;
+  }
+}
+
+.header-fixed {
+  padding-bottom: 92px;
+
+  @include respond-to($tablet) {
+    padding-bottom: 50px;
+  }
 }

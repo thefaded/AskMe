@@ -2,5 +2,9 @@
 @import "buttons.scss";
 @import "media_queries.scss";
 @import "layout.scss";
+@import "mixins.scss";
 
 @import "blocks/header.scss";
+@import "blocks/header_logged.scss";
+@import "blocks/user-feed.scss";
+@import "blocks/asked-questions.scss";

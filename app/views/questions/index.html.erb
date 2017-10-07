@@ -1,0 +1,21 @@
+<div class="asked-questions">
+  <div class="asked-questions__title">
+    Questions (<%= @questions.count %>)
+  </div>
+  <% @questions.each do |question| %>
+    <div class="asked-questions__question">
+      <div class="asked-questions__question-title">
+        <%= question['text'] %>
+      </div>
+      <div class="asked-questions__question-date">
+        <%= l(Date.parse(question['created_at']), format: :long) %>
+      </div>
+      <div class="asked-questions__question-date">
+        Question id: <%= question['id'] %>
+      </div>
+      <div class="asked-questions__button">
+        <%= link_to 'Answer', { :controller => 'questions', :action => 'edit', :id => question['id'] }, class: 'asked-question--button' %>
+      </div>
+    </div>
+  <% end %>
+</div>

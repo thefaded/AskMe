@@ -1,0 +1,16 @@
+@mixin imgGeneration($num) {
+  li:nth-child(#{$num}) {
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 24px;
+      height: 24px;
+      background-size: cover;
+      background-image: asset-url("menu/#{$num}.svg");
+      left: 4px;
+      top: 4px;
+    }
+  }
+}

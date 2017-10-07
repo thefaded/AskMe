@@ -1,0 +1,26 @@
+<div>
+  <%= form_for(@question) do |f| %>
+    <% if @question.errors.any? %>
+      <div class="errors">
+        <ul>
+          <% @question.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.hidden_field :user_id %>
+
+    <div>
+      <%= f.label :text, 'Вопрос' %>
+      <%= f.text_area :text %>
+    </div>
+
+    <% if current_user.present? && current_user == @question.user %>
+      <div>
+        <%= f.label :answer, 'Ответ' %>
+        <%= f.text_area :answer %>
+      </div>
+    <% end %>
+</div>

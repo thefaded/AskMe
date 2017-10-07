@@ -1,32 +1,27 @@
-<!-- Output information about user -->
-<div>
-  <h3>Name: <%= @user.name %></h3>
-  <h3>Username: @<%= @user.username %></h3>
-  <div>
-    <%= image_tag user_avatar(@user), alt: 'Avatar', style: 'width: 150px; border-radius: 50%;' %>
+<div class="user-feed">
+  <div class="user-feed__avatar">
+    <%= image_tag user_avatar(@user), alt: 'Avatar', class: 'user-feed__avatar--rounded' %>
+  </div>
+  <div class="user-feed__name">
+    <%= @user.name %>
+  </div>
+  <div class="user-feed__username">
+    @<%= @user.username %>
   </div>
 </div>
 
-<!-- Example of i18n -->
-<div>
-  <div>Всего:
-    <%= @questions.count %>
-    <%= t('question', count: @questions.count)%>
+<!-- Form for asking question -->
+<div class="question-form">
+  <div class="question-form__title">
+    Ask @<%= @user.username %> question:
   </div>
+  <%= form_for(@question_new) do |f| %>
+    <%= f.hidden_field :user_id %>
+    <%= f.text_area :text, placeholder: 'What, when, why... ask' %>
+    <%= submit_tag 'Ask question!' %>
+  <% end %>
 </div>
-<!-- Simple output of all questions using partial -->
+
 <% @questions.each do |question| %>
   <%= render partial: 'questions/question', object: question %>
-<% end %>
-
-<!-- Simple form for new question -->
-<%= form_for @new_question do |f| %>
-  <%= f.hidden_field :user_id %>
-  <div>
-    <%= f.label "Your question for @#{@user.username}" %>
-    <%= f.text_area :text %>
-  </div>
-  <div>
-    <%= submit_tag 'Ask question!' %>
-  </div>
 <% end %>
