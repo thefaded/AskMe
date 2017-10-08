@@ -42,7 +42,7 @@
 
   @include respond-to($tablet) {
     @include container-create($tablet);
-    margin-top: 10px;
+    margin-top: $topMargin;
 
     .login-form {
       padding: 0px 170px;

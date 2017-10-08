@@ -26,8 +26,11 @@ class QuestionsController < ApplicationController
   # Answering question
   def update
     @question.answer = question_update[:answer]
-    @question.save!
-    redirect_to user_path(@question.user), notice: 'Question successfully answered!'
+    if @question.save
+      redirect_to user_path(@question.user), notice: 'Question successfully answered!'
+    else
+      redirect_to edit_question_path(@question)
+    end
   end
 
   # Deleting question

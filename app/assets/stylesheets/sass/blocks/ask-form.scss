@@ -1,0 +1,57 @@
+.ask-form {
+  background-color: white;
+  text-align: center;
+  // width: 400px;
+  margin: 0 auto;
+  max-width: 480px !important;
+
+  &__title {
+    padding: 15px;
+    font-size: 16px;
+    word-wrap: break-word;
+    color: #4A4A50;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  // MAKE DIV
+  &__block {
+    padding: 10px;
+    border: solid 1px #e6e6f0;
+    margin: 0 15px;
+
+  }
+
+  &__button {
+    font-size: 13px;
+    background-color: #FF643C;
+    color: #fff;
+    border: none;
+    border-radius: 2px;
+    line-height: 16px;
+    padding-bottom: 8px;
+    padding-top: 8px;
+    max-width: 160px;
+    font-weight: bold;
+    padding: 9px 10px;
+    margin: 10px 0px;
+  }
+
+  &__area {
+    font-size: 16px;
+    line-height: 22px;
+    min-height: 125px;
+    width: 100%;
+    border: none;
+    color: #2b3237;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  @include respond-to($tablet) {
+    @include container-create($tablet);
+    margin-top: $topMargin;
+  }
+}

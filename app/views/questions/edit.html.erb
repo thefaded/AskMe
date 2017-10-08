@@ -1,6 +1,11 @@
-Hey you are answering question:
-<%= p @question.text %>
-<%= form_for @question do |f| %>
-  <%= f.text_field :answer %>
-  <%= f.submit "Answer!" %>
-<% end %>
+<div class="ask-form">
+  <div class="ask-form__title">
+    <%= @question.text %>
+  </div>
+  <%= form_for @question do |f| %>
+    <div class="ask-form__block">
+      <%= f.text_area :answer, placeholder: 'What is your answer?', class: 'ask-form__area' %>
+    </div>
+    <%= f.submit "Answer!", class: 'ask-form__button' %>
+  <% end %>
+</div>

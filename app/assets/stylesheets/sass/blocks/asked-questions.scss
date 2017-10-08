@@ -1,5 +1,45 @@
 .asked-questions {
-  padding-top: 10px;
+  background-color: #fff;
+
+  &__low {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 19px;
+    font-weight: bold;
+    color: #000;
+  }
+
+  &__sub-title {
+    color: $gray-disabled;
+    font-size: 12px;
+    padding: 15px 20px;
+    border-top: 8px solid #f2f2f9;
+  }
+
+  &__delete-btn {
+    padding: 8px 20px;
+    border-top: 8px solid #f2f2f9;
+    background-color: #f2f2f9;
+  }
+
+  &__btn--delete {
+    color: $black;
+    border: none;
+    background-color: #f2f2f9;
+    cursor: not-allowed;
+
+    &:hover {
+      color: #b2b2bb;
+      transition: .3s;
+    }
+  }
 
   &__question {
     border-top: 8px solid #f2f2f9;
@@ -10,14 +50,42 @@
     padding-right: 20px;
 
     &-title {
+      word-wrap: break-word;
       font-weight: bold;
       font-size: 19px;
       color: $black;
       margin-bottom: 10px;
+      margin-right: 30px;
     }
+
     &-date {
       color: $gray-disabled;
       font-size: 12px;
     }
+  }
+
+  @include respond-to($tablet) {
+    @include container-create($tablet);
+    margin-top: $topMargin;
+
+    &__title {
+      text-align: left;
+    }
+  }
+}
+
+.asked-question--button {
+  border-radius: 18px;
+  background: #fff;
+  border: 2px solid #d5d5dd;
+  color: $orange;
+  padding: 5px 8px;
+
+  &:hover {
+    background-color: $orange;
+    color: white;
+    border-color: $orange;
+    transition: .3s;
+    text-decoration: none;
   }
 }

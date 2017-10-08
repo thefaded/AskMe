@@ -1,20 +1,31 @@
 <div class="asked-questions">
   <div class="asked-questions__title">
-    Questions (<%= @questions.count %>)
+    <% if @questions.count < 1%>
+      You don't have any questions :(
+    <% else %>
+      Questions (<%= @questions.count %>)
+    <% end %>
+  </div>
+  <div class="asked-questions__delete-btn">
+    <button class="asked-questions__btn--delete"type="button" name="button" disabled>Delete all questions</button>
+  </div>
+  <div class="asked-questions__sub-title">
+    Questions you’ve been asked will not be visible to other users on your profile until you choose to answer them
   </div>
   <% @questions.each do |question| %>
     <div class="asked-questions__question">
       <div class="asked-questions__question-title">
         <%= question['text'] %>
       </div>
-      <div class="asked-questions__question-date">
-        <%= l(Date.parse(question['created_at']), format: :long) %>
-      </div>
-      <div class="asked-questions__question-date">
-        Question id: <%= question['id'] %>
-      </div>
-      <div class="asked-questions__button">
-        <%= link_to 'Answer', { :controller => 'questions', :action => 'edit', :id => question['id'] }, class: 'asked-question--button' %>
+      <div class="asked-questions__low">
+        <div class="asked-questions__question-date">
+          <%= l(Date.parse(question['created_at']), format: :long) %>
+        </div>
+        <div class="asked-questions__button">
+          <%= link_to 'Answer', { :controller => 'questions', :action => 'edit', :id => question['id'] }, class: 'asked-question--button' %>
+          <% @question_obj = Question.find(question['id']) %>
+          <%= link_to 'Delete', question_path(@question_obj), method: :delete, class: 'asked-question--button' %>
+        </div>
       </div>
     </div>
   <% end %>
