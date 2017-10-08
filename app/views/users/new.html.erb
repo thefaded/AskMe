@@ -1,29 +1,27 @@
-<h1>Welcome to AskMe!</h1>
-<h2>Join us right now</h2>
-<!-- Form for registration new user -->
-<%= form_for @user do |f| %>
-  <%= render partial: 'users/user_flash' %>
-  <div>
-    <%= f.label :email, 'Login (email)' %>
-    <%= f.text_field :email %>
+<section class="user-login">
+  <div class="user-login__title">Hey, welcome!</div>
+  <div class="user-login__sub-title">Tell us a little about yourself.</div>
+  <div class="login-form">
+    <%= form_for @user do |f| %>
+      <%= render partial: 'users/user_flash' %>
+      <div class="login-form__block">
+        <%= f.text_field :email, placeholder: "Email", class: "login-form__input" %>
+      </div>
+      <div class="login-form__block">
+        <%= f.text_field :username, placeholder: "Username", class: "login-form__input" %>
+      </div>
+      <div class="login-form__block">
+        <%= f.text_field :name, placeholder: "Name", class: "login-form__input" %>
+      </div>
+      <div class="login-form__block">
+        <%= f.password_field :password, placeholder: "Password", class: "login-form__input" %>
+      </div>
+      <div class="login-form__block">
+        <%= f.password_field :password_confirmation, placeholder: "Password confirmation", class: "login-form__input" %>
+      </div>
+      <div class="login-form__block">
+        <%= submit_tag "Sing up", class: "login-form__btn" %>
+      </div>
+    <% end %>
   </div>
-  <div>
-    <%= f.label :username, 'Username' %>
-    <%= f.text_field :username %>
-  </div>
-  <div>
-    <%= f.label :name, 'Name' %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :password, 'Password' %>
-    <%= f.password_field :password %>
-  </div>
-  <div>
-    <%= f.label :password_confirmation, 'Password confirmation' %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div>
-    <%= f.submit 'Register' %>
-  </div>
-<% end %>
+</section>

@@ -1,20 +1,19 @@
-<div class="">
-  <h1>Welcome to AskMe</h1>
-  <h4>Please log in or register</h4>
-
-  <div class="">
+<section class="user-login">
+  <div class="user-login__title">Hey, good to see you again!</div>
+  <div class="user-login__sub-title">
+    Sign in to get going.
+  </div>
+  <div class="login-form">
     <%= form_tag sessions_path do %>
-      <div>
-        Email<br>
-        <!-- params[:email] == input placeholer -->
-        <%= text_field_tag :email, params[:email] %>
+      <div class="login-form__block">
+        <%= text_field_tag :email, params[:email], placeholder: "Email", class: "login-form__input" %>
       </div>
-      <div>
-        <%= password_field_tag :password %>
+      <div class="login-form__block">
+        <%= password_field_tag :password, "", placeholder: "Password", class: "login-form__input" %>
       </div>
-      <div>
-        <%= submit_tag "Log in" %>
+      <div class="login-form__block">
+        <%= submit_tag "Log in", class: "login-form__btn" %>
       </div>
     <% end %>
   </div>
-</div>
+</section>

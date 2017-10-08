@@ -1,0 +1,60 @@
+.user-login {
+  padding-top: 20px;
+  background-color: white;
+  text-align: center;
+
+  &__title {
+    font-size: 1.86667rem;
+    margin: 0 3px;
+  }
+
+  &__sub-title {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+  }
+
+  .login-form {
+    &__block {
+      margin-bottom: 15px;
+    }
+
+    &__input {
+      padding: 12px 10px;
+      border: 1px solid #d5d5dd;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    &__btn {
+      width: 100%;
+      background-color: $orange;
+      color: #fff;
+      max-width: 280px;
+      padding: 9px 10px;
+      border-radius: 2px;
+      font-weight: bold;
+      cursor: pointer;
+      font-size: 14px;
+      border: none;
+      margin-bottom: 70px;
+    }
+  }
+
+  @include respond-to($tablet) {
+    @include container-create($tablet);
+    margin-top: 10px;
+
+    .login-form {
+      padding: 0px 170px;
+
+      &__input {
+        max-width: none;
+        padding: 8px 10px;
+      }
+
+      &__btn {
+        max-width: none;
+      }
+    }
+  }
+}
