@@ -1,1 +1,6 @@
-<h1>WASSUP U R EDITING</h1>
+Hey you are answering question:
+<%= p @question.text %>
+<%= form_for @question do |f| %>
+  <%= f.text_field :answer %>
+  <%= f.submit "Answer!" %>
+<% end %>
