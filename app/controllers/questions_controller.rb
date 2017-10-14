@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :authorize_user, except: [:create]
-  before_action :check_question, only: [:edit, :update, :destroy]
+  before_action :check_question, only: [:edit, :update]
   before_action :set_question, only: [:edit, :update, :destroy]
   # Showing all questions without answers
   def index
@@ -35,6 +35,7 @@ class QuestionsController < ApplicationController
 
   # Deleting question
   def destroy
+    delete_question
     user = @question.user
     @question.destroy
     redirect_to user_path(user), notice: 'Question deleted'
@@ -45,9 +46,13 @@ class QuestionsController < ApplicationController
     def set_question
       @question = Question.find(params[:id])
     end
+    # Checking question for delete
+    def delete_question
+      reject_user unless current_user.present? && current_user.id == set_question.user_id
+    end
     # Checking permission for editing
     def check_question
-      reject_user unless current_user.present? && current_user.id == set_question.user_id && set_question.answer == nil
+      reject_user unless current_user.present? && current_user.id == set_question.user_id && (set_question.answer == nil || set_question.answer == "")
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def question_params

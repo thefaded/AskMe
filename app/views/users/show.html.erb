@@ -10,18 +10,25 @@
   </div>
 </div>
 
-<!-- Form for asking question -->
-<div class="question-form">
-  <div class="question-form__title">
-    Ask @<%= @user.username %> question:
+<div class="question-form__container">
+  <div class="question-form">
+    <div class="question-form__title">
+      Ask @<%= @user.username %> question:
+    </div>
+    <div class="question-form__descr">
+      <%= form_for(@question_new) do |f| %>
+        <%= f.hidden_field :user_id %>
+        <div class="question">
+          <%= f.text_area :text, placeholder: 'What, when, why... ask', class: 'question-form__input' %>
+        </div>
+        <%= submit_tag 'Ask question!', class: 'question-form__btn' %>
+      <% end %>
+    </div>
   </div>
-  <%= form_for(@question_new) do |f| %>
-    <%= f.hidden_field :user_id %>
-    <%= f.text_area :text, placeholder: 'What, when, why... ask' %>
-    <%= submit_tag 'Ask question!' %>
-  <% end %>
 </div>
 
-<% @questions.each do |question| %>
-  <%= render partial: 'questions/question', object: question %>
-<% end %>
+<div class="questions-answered">
+  <% @questions.each do |question| %>
+    <%= render partial: 'questions/question', object: question %>
+  <% end %>
+</div>

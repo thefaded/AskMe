@@ -1,8 +1,18 @@
-<!-- This is partial -->
-<div style="border: 2px solid black; margin: 10px 0px;">
-  <div><span style="color: red;">Question is: </span><%= question.text %></div>
-
-  <% if question.answer.present? %>
-    <div><span style="color: red;">Answer: </span><%= question.answer %></div>
-  <% end %>
+<div class="questions-answered__item">
+  <div class="questions-answered__title">
+    <%= question.text %>
+  </div>
+  <div class="questions-answered__time">
+    <%= l(question.created_at, format: :long) %>
+  </div>
+  <div class="questions-answered__block">
+    <div class="questions-answered__text">
+      <%= question.answer %>
+    </div>
+    <% if current_user.present? && current_user.id == question.user_id %>
+      <div class="questions-answered__delete">
+        <%= link_to 'Delete', question_path(question), method: :delete, class: 'asked-question--button' %>
+      </div>
+    <% end %>
+  </div>
 </div>

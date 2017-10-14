@@ -10,11 +10,13 @@ class User < ApplicationRecord
   has_many :questions
   # Email validation
   validates :email, :username, presence: true, uniqueness: true
+  # Name validation
+  validates :name, presence: true
   # Username validation
   validates :username, length: { maximum: 40 }
   # Password validation
-  validates :password, confirmation: true
-  validates :password_confirmation, presence: true
+  validates :password, confirmation: true, on: :create
+  validates :password_confirmation, presence: true, on: :create
 
   before_save :encrypt_password
 
