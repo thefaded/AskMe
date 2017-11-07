@@ -19,7 +19,7 @@
       </div>
       <div class="asked-questions__low">
         <div class="asked-questions__question-date">
-          <%= l(Date.parse(question['created_at']), format: :long) %>
+          <%= l(question.created_at.to_date, format: :long) %>
         </div>
         <div class="asked-questions__button">
           <%= link_to 'Answer', { :controller => 'questions', :action => 'edit', :id => question['id'] }, class: 'asked-question--button' %>

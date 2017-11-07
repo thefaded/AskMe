@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   before_action :authorized?, only: [:update, :edit, :destroy]
   before_action :logined?, only: [:new, :create]
 
@@ -15,6 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
+      session[:user_id] = @user.id
       redirect_to root_url, notice: 'User successfully created!'
     else
       render :new
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :name, :username, :avatar_url)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :username, :avatar_url, :bg_color)
   end
 
   def authorized?

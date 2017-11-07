@@ -4,7 +4,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:edit, :update, :destroy]
   # Showing all questions without answers
   def index
-    @questions = Question.get_questions(session[:user_id])
+    @questions = Question.where(user_id: session[:user_id], answer: nil)
   end
 
   def create

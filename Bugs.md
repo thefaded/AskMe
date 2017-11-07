@@ -1,5 +1,5 @@
 # Features
-- [ ] Automatic authentication after registration
+- [ X ] Automatic authentication after registration
 - [ ] Users can change background color of their profiles.
 - [ ] User can delete account.
 - [ ] Question must remember author.

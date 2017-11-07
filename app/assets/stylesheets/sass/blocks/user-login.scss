@@ -17,6 +17,14 @@
     &__block {
       margin-bottom: 15px;
       font-weight: bold;
+
+      &--left {
+        text-align: left;
+        @include respond-only($mobile) {
+          max-width: 280px;
+          margin: 0 auto;
+        }
+      }
     }
 
     &__input {
@@ -24,6 +32,13 @@
       border: 1px solid #d5d5dd;
       width: 100%;
       max-width: 280px;
+
+      &-color {
+        // border: 1px solid #d5d5dd;
+        height: 50px;
+        width: 100%;
+        max-width: 280px;
+      }
     }
 
     &__btn {
@@ -51,6 +66,11 @@
       &__input {
         max-width: none;
         padding: 8px 10px;
+
+        &-color {
+          max-width: none;
+          padding: 8px 10px;
+        }
       }
 
       &__btn {
