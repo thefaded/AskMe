@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
-  before_action :authorized?, only: [:update, :edit, :destroy]
-  before_action :logined?, only: [:new, :create]
+  before_action :already_user, only: [:new, :create]
+  before_action :authorized, only: [:edit, :update]
+  before_action :user_edit, only: [:edit, :update]
+  before_action :set_user, only: [:edit, :update, :show]
 
   def index
     @users = User.last(5)
@@ -21,9 +23,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    @user = User.find(params[:id])
+  def edit
+  end
 
+  def update
     if @user.update(user_params)
       redirect_to user_path(@user), notice: 'Profile updated!'
     else
@@ -31,12 +34,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
   def show
-    @user = User.find(params[:id])
     @questions = @user.questions.where('answer <> "" AND answer IS NOT NULL').order(created_at: :desc)
 
     @question_new = Question.new
@@ -44,16 +42,24 @@ class UsersController < ApplicationController
   end
 
   private
-
+  # Permitted params
   def user_params
     params.require(:user).permit(:email, :password, :password_confirmation, :name, :username, :avatar_url, :bg_color)
   end
-
-  def authorized?
+  # Authorization
+  def authorized
+    reject unless current_user.present?
+  end
+  # Can edit
+  def user_edit
     reject_user unless current_user.present? && current_user.id == params[:id].to_i
   end
-
-  def logined?
+  # Set user
+  def set_user
+    @user = User.find(params[:id])
+  end
+  # User loggined
+  def already_user
     reject_user if current_user.present?
   end
 end

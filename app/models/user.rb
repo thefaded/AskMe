@@ -18,7 +18,7 @@ class User < ApplicationRecord
   validates :password, confirmation: true, on: :create
   validates :password_confirmation, presence: true, on: :create
   # Color validation
-  validates :check_color, with: /\A#?(?:[A-F0-9]{3}){1,2}\z/i
+  validates :bg_color, format: { with: /\A#?(?:[A-F0-9]{3}){1,2}\z/ }
 
   before_save :encrypt_password
 

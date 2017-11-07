@@ -15,11 +15,12 @@ class QuestionsController < ApplicationController
       redirect_to root_url
     end
   end
-  # Showing all questions without answers
+  
   def index
+    # Showing all questions without answers
     @questions = Question.where(user_id: session[:user_id], answer: nil)
   end
-  # Answering question
+  
   def update
     @question.answer = question_params[:answer]
 
@@ -29,7 +30,7 @@ class QuestionsController < ApplicationController
       redirect_to edit_question_path(@question)
     end
   end
-  # Deleting question
+  
   def destroy
     @question.destroy
     redirect_to questions_path, notice: 'Question deleted'
