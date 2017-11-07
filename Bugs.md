@@ -2,7 +2,7 @@
 - [ X ] Automatic authentication after registration
 - [ ] Users can change background color of their profiles.
 - [ ] User can delete account.
-- [ ] Question must remember author.
+- [ X ] Question must remember author.
 
 # Bugs
 - [ ] Fix redirection questions#edit

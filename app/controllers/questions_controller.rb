@@ -7,6 +7,7 @@ class QuestionsController < ApplicationController
     @question = Question.new
     @question.user_id = question_params[:user_id]
     @question.text = question_params[:text]
+    @question.author_id = current_user.id if current_user.present?
 
     if @question.save
       redirect_to user_path(@question.user)
@@ -21,6 +22,7 @@ class QuestionsController < ApplicationController
   # Answering question
   def update
     @question.answer = question_params[:answer]
+
     if @question.save
       redirect_to user_path(@question.user), notice: 'Question successfully answered!'
     else
@@ -36,7 +38,7 @@ class QuestionsController < ApplicationController
   private
   # Permitted params
   def question_params
-    params.require(:question).permit(:user_id, :text, :answer, :id)
+    params.require(:question).permit(:author, :user_id, :text, :answer, :id)
   end
   # Setting up question
   def set_question

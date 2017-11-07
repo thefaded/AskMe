@@ -17,6 +17,13 @@
       <div class="asked-questions__question-title">
         <%= question['text'] %>
       </div>
+      <div class="asked-questions__author">
+        <% if question.author_id %>
+          <%= User.find(question.author_id).username %>
+        <% else %>
+          Аноним
+        <% end %>
+      </div>
       <div class="asked-questions__low">
         <div class="asked-questions__question-date">
           <%= l(question.created_at.to_date, format: :long) %>
