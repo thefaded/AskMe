@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   before_action :already_user, only: [:new, :create]
-  before_action :authorized, only: [:edit, :update]
-  before_action :user_edit, only: [:edit, :update]
-  before_action :set_user, only: [:edit, :update, :show]
+  before_action :authorized, only: [:edit, :update, :destroy]
+  before_action :user_edit, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :destroy, :show]
 
   def index
     @users = User.last(5)
@@ -35,10 +35,15 @@ class UsersController < ApplicationController
   end
 
   def show
-    @questions = @user.questions.where('answer <> "" AND answer IS NOT NULL').order(created_at: :desc)
-
+    @questions = @user.questions.where.not(answer: nil)
     @question_new = Question.new
     @question_new.user_id = params[:id]
+  end
+
+  def destroy
+    @user.destroy
+    session[:user_id] = nil
+    redirect_to root_url
   end
 
   private
@@ -56,7 +61,8 @@ class UsersController < ApplicationController
   end
   # Set user
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find_by(id: params[:id])
+    reject_user unless @user
   end
   # User loggined
   def already_user

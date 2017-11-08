@@ -44,4 +44,8 @@
       </div>
     <% end %>
   </div>
+  <div>
+    Do you wanna delete?
+    <%= link_to 'Delete', user_path(@user), method: :delete, class: 'asked-question--button' %>
+  </div>
 </section>
