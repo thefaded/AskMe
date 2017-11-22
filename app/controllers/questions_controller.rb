@@ -10,9 +10,9 @@ class QuestionsController < ApplicationController
     @question.author_id = current_user.id if current_user.present?
 
     if @question.save
-      redirect_to user_path(@question.user)
+      redirect_to user_path(@question.user), notice: 'Question created!'
     else
-      redirect_to root_url
+      redirect_to root_url, notice: 'Error, while creating question'
     end
   end
   
@@ -27,13 +27,21 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to user_path(@question.user), notice: 'Question successfully answered!'
     else
-      redirect_to edit_question_path(@question)
+      redirect_to edit_question_path(@question), notice: 'Error, please retry'
     end
   end
   
   def destroy
     @question.destroy
     redirect_to questions_path, notice: 'Question deleted'
+  end
+
+  def destroy_all
+    if current_user.questions.destroy_all
+	    redirect_to questions_path, notice: 'Questions deleted'
+    else
+			redirect_to questions_path, notice: 'Error!'
+    end
   end
 
   private
@@ -47,7 +55,7 @@ class QuestionsController < ApplicationController
   end
   # Edit question (update, delete), checking authorization
   def question_edit
-    reject_user if current_user.questions.where(id: params[:id]).empty?
+    reject_user if current_user.questions.where(id: params[:id]).empty?	
   end
   # Authorizing user
   def authorize_user

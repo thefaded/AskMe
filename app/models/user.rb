@@ -22,6 +22,10 @@ class User < ApplicationRecord
 
   before_save :encrypt_password
 
+	def hello
+		
+  end
+  
   # Encrypting password
   def encrypt_password
     if password.present?

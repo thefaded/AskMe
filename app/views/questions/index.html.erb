@@ -7,7 +7,7 @@
     <% end %>
   </div>
   <div class="asked-questions__delete-btn">
-    <button class="asked-questions__btn--delete"type="button" name="button" disabled>Delete all questions</button>
+    <%= link_to 'Delete all questions', questions_delete_all_path, class: 'asked-questions__btn--delete' %>
   </div>
   <div class="asked-questions__sub-title">
     Questions you’ve been asked will not be visible to other users on your profile until you choose to answer them
