@@ -43,7 +43,7 @@ class QuestionsController < ApplicationController
 			redirect_to questions_path, notice: 'Error!'
     end
   end
-
+	
   private
   # Permitted params
   def question_params

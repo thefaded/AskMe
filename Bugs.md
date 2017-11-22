@@ -9,9 +9,9 @@
 ### Background
 [ X ] Fix redirection questions#edit
 [ X ] Add validations to user
-[ ] Make flash, notice, errors visible
+[ X ] Make flash, notice, errors visible
+[ X ] Fix BG-color update
 [ ] Make visible bg color
-[ ] Fix BG-color update
 
 ### UI
 [ ] Add links to 2nd nav-menu

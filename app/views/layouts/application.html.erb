@@ -13,16 +13,15 @@
   </head>
 
   <body style="font-family: 'Nunito', sans-serif; background-color: #eee;">
-    <!-- Printing Flash Message -->
-    <%= render partial: 'application/flash' %>
     <!-- Fixed header -->
-
     <% if current_user.present? %>
       <%= render partial: 'application/header_logged' %>
     <% else %>
       <%= render partial: 'application/header_isnt_logged'%>
     <% end %>
-
+     <!-- Printing Flash Message -->
+    <%= render partial: 'application/flash' %>
+    
     <%= yield %>
 
     <!-- Footer -->
