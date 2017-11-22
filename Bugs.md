@@ -11,6 +11,7 @@
 [ X ] Add validations to user
 [ ] Make flash, notice, errors visible
 [ ] Make visible bg color
+[ ] Fix BG-color update
 
 ### UI
 [ ] Add links to 2nd nav-menu
