@@ -2,7 +2,7 @@ class QuestionsController < ApplicationController
   before_action :authorize_user, except: [:create]
   before_action :question_edit, only: [:edit, :update, :destroy]
   before_action :set_question, only: [:edit, :update, :destroy]
-
+  
   def create
     @question = Question.new
     @question.user_id = question_params[:user_id]
@@ -35,15 +35,15 @@ class QuestionsController < ApplicationController
     @question.destroy
     redirect_to questions_path, notice: 'Question deleted'
   end
-
+  # Destroy all questions
   def destroy_all
     if current_user.questions.destroy_all
-	    redirect_to questions_path, notice: 'Questions deleted'
+      redirect_to questions_path, notice: 'Questions deleted'
     else
-			redirect_to questions_path, notice: 'Error!'
+      redirect_to questions_path, notice: 'Error!'
     end
   end
-	
+
   private
   # Permitted params
   def question_params
