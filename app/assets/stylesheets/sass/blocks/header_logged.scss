@@ -4,9 +4,7 @@
   color: $orange;
   padding: 0px 5px;
 
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  display: none;
 
   &--img {
     position: relative;
@@ -34,7 +32,6 @@
 
     margin-left: auto;
     margin-right: auto;
-    // padding-right: 56px;
   }
 
   .main-menu {
@@ -43,6 +40,10 @@
 
   @include respond-to($tablet) {
     @include container-create($tablet);
+    
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
 
     &__menu {
@@ -91,27 +92,12 @@
   }
 }
 
-// Second mobile menu
-.main-menu__mobile {
-  @include respond-only($mobile) {
-    display: flex;
-    justify-content: space-around;
-
-    font-size: 0;
-    padding: 5px 0px;
-
-    li {
-      height: 32px;
-      width: 32px;
-      margin: 0;
-    }
-
-    @for $i from 1 through 4 {
-      @include imgGeneration($i);
-    }
-  }
-
+.header-mobile {
   @include respond-to($tablet) {
     display: none;
   }
+}
+
+.link-orange {
+  color: $orange !important;
 }

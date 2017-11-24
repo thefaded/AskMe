@@ -8,15 +8,15 @@ class SessionsController < ApplicationController
 
     if @user.present?
       session[:user_id] = @user.id
-      redirect_to root_url, notice: 'Successfully authenticated'
+      redirect_to root_url, flash: { success: 'User authenticated!' }
     else
-      flash.now.alert = 'Wrong password or email'
+      flash.now[:danger] = 'Wrong password or email'
       render 'new'
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url
+    redirect_to root_url, flash: { success: 'You are log outed!' }
   end
 end

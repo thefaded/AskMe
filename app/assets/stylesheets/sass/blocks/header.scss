@@ -59,7 +59,7 @@
 }
 
 .header-fixed {
-  padding-bottom: 92px;
+  // padding-bottom: 50px;
 
   @include respond-to($tablet) {
     padding-bottom: 50px;

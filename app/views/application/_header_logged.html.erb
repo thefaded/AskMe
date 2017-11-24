@@ -1,27 +1,40 @@
 <div class="header-container  fixed-top">
   <div class="header-logged">
-    <!-- Hamburger -->
-    <div class="header-logged__hamburger">
-      <button type="button" name="button" class="header-logged--btn" data-toggle="modal" data-target="#myModal">
-        <span class="header-logged--img"></span>
-      </button>
-    </div>
-
     <div class="header-logged__logo">
       <%= link_to 'AskMe', root_url, class: 'header__logo--plain' %>
     </div>
-
-    <!-- Tablet&Desktop menu -->
     <div class="header-logged__menu">
       <%= render partial: "users/nav-menu", locals: { type: :desktop } %>
     </div>
   </div>
-
-  <!-- Mobile menu with images -->
-  <div class="header-logged__mobile-menu">
-    <%= render partial: "users/nav-menu", locals: { type: :mobile } %>
-  </div>
 </div>
 <div class="header-fixed"></div>
+
+<div class="header-mobile">
+  <nav class="navbar navbar-light bg-light">
+    <%= link_to 'AskMe', root_url, class: 'navbar-brand  link-orange' %>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <% links = [
+        [ 'Feed', user_path(current_user) ],
+        [ 'Questions', questions_path ],
+        [ 'Profile', edit_user_path(current_user) ],
+        [ 'Log Out', logout_path ]
+    ] %>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <% links.each do |link| %>
+          <li class="nav-link">
+            <%= link_to "#{link.first}", "#{link.last}", class: 'nav-link' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</div>
 
 <%= render partial: "application/modal-menu" %>

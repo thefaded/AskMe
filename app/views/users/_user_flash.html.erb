@@ -1,7 +1,9 @@
 <% if @user.errors.any?  %>
-  <div>
+  <div class="alert alert-danger" role="alert">
+    <button class="close" data-dismiss="alert">×</button>
     <% for message in @user.errors.full_messages  %>
-      <div><%= message %></div>
+      <%= message %><br>
     <% end %>
   </div>
 <% end  %>
+

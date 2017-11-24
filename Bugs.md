@@ -1,23 +1,23 @@
 # Features
-[ X ] Automatic authentication after registration
-[ X ] Users can change background color of their profiles.
-[ X ] User can delete (deactivate) account.
-[ X ] Question must remember author.
-[ X ] Make btn delete all questions
+- [x] Automatic authentication after registration
+- [x] Users can change background color of their profiles.
+- [x] User can delete (deactivate) account.
+- [x] Question must remember author.
+- [x] Make btn delete all questions
 
 # Bugs
 ### Background
-[ X ] Fix redirection questions#edit
-[ X ] Add validations to user
-[ X ] Make flash, notice, errors visible
-[ X ] Fix BG-color update
-[ ] Make visible bg color
+- [x] Fix redirection questions#edit
+- [x] Add validations to user
+- [x] Make flash, notice, errors visible
+- [x] Fix BG-color update
+- [] Make visible bg color
 
 ### UI
-[ ] Add links to 2nd nav-menu
-[ ] Fix modal in nav menu
-[ ] Fix bg image shadow
+- [x] Fix modal in nav menu
+- [x] Fix bg image shadow
+- [x]
 
-### Others
-[ ] Make README.md
-[ ] Add license
+# Others
+- [ ] Make README.md
+- [ ] Add license

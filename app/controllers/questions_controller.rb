@@ -10,9 +10,9 @@ class QuestionsController < ApplicationController
     @question.author_id = current_user.id if current_user.present?
 
     if @question.save
-      redirect_to user_path(@question.user), notice: 'Question created!'
+      redirect_to user_path(@question.user), flash: { success: 'Question created!' }
     else
-      redirect_to root_url, notice: 'Error, while creating question'
+      redirect_to root_url, flash: { error: 'Error, while creating question' }
     end
   end
   
@@ -25,22 +25,22 @@ class QuestionsController < ApplicationController
     @question.answer = question_params[:answer]
 
     if @question.save
-      redirect_to user_path(@question.user), notice: 'Question successfully answered!'
+      redirect_to user_path(@question.user), flash: { success: 'Question successfully answered!' }
     else
-      redirect_to edit_question_path(@question), notice: 'Error, please retry'
+      redirect_to edit_question_path(@question), flash: { error: 'Error while answering question' }
     end
   end
   
   def destroy
     @question.destroy
-    redirect_to questions_path, notice: 'Question deleted'
+    redirect_to questions_path, flash: { success: 'Question destroyed!' }
   end
   # Destroy all questions
   def destroy_all
     if current_user.questions.destroy_all
-      redirect_to questions_path, notice: 'Questions deleted'
+      redirect_to questions_path, flash: { success: 'Questions destroyed!' }
     else
-      redirect_to questions_path, notice: 'Error!'
+      redirect_to questions_path, flash: { error: 'Error while destroying questions' }
     end
   end
 
