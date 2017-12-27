@@ -6,12 +6,14 @@
 - [x] Make btn delete all questions
 
 # Bugs
-### Background
+### Backend
 - [x] Fix redirection questions#edit
 - [x] Add validations to user
 - [x] Make flash, notice, errors visible
 - [x] Fix BG-color update
-- [] Make visible bg color
+- [ ] Make visible bg color
+- [ ] Bootstrap 4 use GEM
+- [ ] Prepare for Heroku
 
 ### UI
 - [x] Fix modal in nav menu
@@ -21,3 +23,4 @@
 # Others
 - [ ] Make README.md
 - [ ] Add license
+- [ ] Upload to Heroku

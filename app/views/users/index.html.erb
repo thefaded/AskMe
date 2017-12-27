@@ -1,5 +1,23 @@
-<% @users.each do |user| %>
-  <div>
-    <%= link_to image_tag(user_avatar(user), style: 'width: 100px; border-radius: 50%;'), user_path(user) %>
-  </div>
+<% if !current_user.present? %>
+  <section class="main-page">
+    <div class="main-page__logo">
+      <%= image_tag "look.gif", class: 'main-page--view' %>
+    </div>
+    <div class="main-page__title">
+      Curious? Just ask!<br>
+      Openly or anonymously.
+    </div>
+    <div class="main-page__buttons">
+      <div><%= link_to 'Sign Up', signup_path, class: 'main-page__btn--colored' %></div>
+      <div><%= link_to 'Log In', login_path, class: 'main-page__btn--transparent' %></div>
+    </div>
+  </section>
 <% end %>
+
+<nav class="main-page__user-list">
+  <% @users.each do |user| %>
+    <div>
+      <%= link_to image_tag(user_avatar(user), style: 'width: 35px; border-radius: 50%;'), user_path(user) %>
+    </div>
+  <% end %>
+</nav>

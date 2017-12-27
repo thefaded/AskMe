@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :already_user, only: [:new, :create]
 
   def new
   end
@@ -18,5 +19,10 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     redirect_to root_url, flash: { success: 'You are log outed!' }
+  end
+
+  private
+  def already_user
+    reject_user if current_user.present?
   end
 end

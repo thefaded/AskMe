@@ -1,0 +1,88 @@
+.main-page {
+  margin-top: 0;
+  background-color: $orange;
+
+  &--view {
+    display: block;
+    width: 75px;
+    margin: 0 auto;
+    padding-top: 45px;
+  }
+
+  &__title {
+    text-align: center;
+    color: #fff;
+  }
+
+  &__buttons {
+    text-align: center;
+    margin-top: 30px;
+    padding-bottom: 40px;
+  }
+  
+  &__btn {
+    &--colored,
+    &--transparent {
+      display: block;
+      width: 300px;
+      min-width: 300px;
+      margin: 30px auto 10px;
+      padding: 10px;
+      border-radius: 4px;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: none !important;
+      }
+    }
+
+    &--colored {
+      background: #fff;
+      color: $orange;
+
+      &:hover {
+        color: $orange !important;
+      }
+    }
+
+    &--transparent {
+      margin-top: 15px;
+      background: transparent;
+      color: #fff;
+      border: 1px solid #fff;
+
+      &:hover {
+        color: #fff !important;
+      }
+    }
+  }
+
+  &__user-list {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__footer {
+    color: #cdcdd9;
+    font-size: 12px;
+
+    &--author,
+    &--production {
+      display: block;
+      text-align: center;
+    }
+
+    @include respond-to($tablet) {
+      &--author {
+        float: left;
+        margin-left: 20px;
+      }
+
+      &--production {
+        float: right;
+        margin-right: 20px;
+      }
+    }
+  }
+}
