@@ -5,10 +5,6 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :destroy, :show]
 
   def index
-    if current_user.present?
-      redirect_to user_path(current_user)
-    end
-
     @users = User.last(5)
   end
 

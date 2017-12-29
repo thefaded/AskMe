@@ -12,12 +12,24 @@
       <div><%= link_to 'Log in', login_path, class: 'main-page__btn--transparent' %></div>
     </div>
   </section>
-<% end %>
 
-<nav class="main-page__user-list">
-  <% @users.each do |user| %>
-    <div>
-      <%= link_to image_tag(user_avatar(user), style: 'width: 35px; border-radius: 50%;'), user_path(user) %>
-    </div>
-  <% end %>
-</nav>
+  <nav class="main-page__user-list">
+    <% @users.each do |user| %>
+      <div>
+        <%= link_to image_tag(user_avatar(user), style: 'width: 35px; border-radius: 50%;'), user_path(user) %>
+      </div>
+    <% end %>
+  </nav>
+<% else %>
+  <section style="background-color: #fff; padding: 25px 0px;">
+    <h1 style="text-align: center; font-size: 1.5em;">Last  <%= @users.count %> registered guys<br>Ask them some questions!</h1>
+    <nav class="main-page__user-list">
+      <% @users.each do |user| %>
+        <div>
+          <%= link_to image_tag(user_avatar(user), style: 'width: 90px; border-radius: 50%;'), user_path(user) %>
+          <p style="text-align: center;"><%= link_to user.name, user_path(user) %></p>
+        </div>
+      <% end %>
+    </nav>
+  </section>
+<% end %>

@@ -14,9 +14,11 @@
   }
 
   .login-form {
+
     &__block {
-      margin-bottom: 15px;
+      // margin-bottom: 15px;
       font-weight: bold;
+      padding-bottom: 15px;
 
       &--left {
         text-align: left;

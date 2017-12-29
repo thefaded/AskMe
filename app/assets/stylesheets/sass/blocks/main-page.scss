@@ -19,7 +19,7 @@
     margin-top: 30px;
     padding-bottom: 40px;
   }
-  
+
   &__btn {
     &--colored,
     &--transparent {
@@ -59,8 +59,12 @@
 
   &__user-list {
     margin-top: 20px;
-    display: flex;
-    justify-content: space-around;
+    text-align: center;
+
+    @include respond-to($tablet) {
+      display: flex;
+      justify-content: space-around;
+    }
   }
 
   &__footer {
