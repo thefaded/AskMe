@@ -78,6 +78,8 @@
     }
 
     @include respond-to($tablet) {
+      @include container-create($tablet);
+      
       &--author {
         float: left;
         margin-left: 20px;

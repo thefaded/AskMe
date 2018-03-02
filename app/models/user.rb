@@ -7,7 +7,7 @@ class User < ApplicationRecord
   # Creating virtual property
   attr_accessor :password
   # Database realtionship
-  has_many :questions
+  has_many :questions, dependent: :nullify
   # Email validation
   validates :email, :username, presence: true, uniqueness: true
   # Name validation

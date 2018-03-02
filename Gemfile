@@ -13,9 +13,9 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'jquery-rails'
+gem 'pg', '~> 0.18'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
@@ -27,10 +27,6 @@ group :development do
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-end
-
-group :production do
-  gem 'pg', '~> 0.18'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
