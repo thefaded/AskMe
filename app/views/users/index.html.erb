@@ -1,4 +1,4 @@
-<% if !current_user.present? %>
+<% if not current_user.present? %>
   <section class="main-page">
     <div class="main-page__logo">
       <%= image_tag "look.gif", class: 'main-page--view' %>
@@ -13,16 +13,20 @@
     </div>
   </section>
 
-  <nav class="main-page__user-list">
+  <nav class="main-page__user-list main-page--offset-top">
     <% @users.each do |user| %>
       <div>
-        <%= link_to image_tag(user_avatar(user), style: 'width: 35px; border-radius: 50%;'), user_path(user) %>
+        <%= link_to image_tag(user_avatar(user), style: 'width: 90px; border-radius: 50%;'), user_path(user) %>
+        <p style="text-align: center;"><%= link_to user.name, user_path(user) %></p>
       </div>
     <% end %>
   </nav>
 <% else %>
-  <section style="padding: 25px 0px;">
-    <h1 style="text-align: center; font-size: 1.5em;">Last  <%= @users.count %> registered guys<br>Ask them some questions!</h1>
+  <section class="main-content">
+    <h1 class="main-content__title">
+      Last <%= @users.count %> registered guys!
+    </h1>
+    <h2>Ask them some questions!</h2>
     <nav class="main-page__user-list">
       <% @users.each do |user| %>
         <div>

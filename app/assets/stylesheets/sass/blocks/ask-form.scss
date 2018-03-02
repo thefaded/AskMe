@@ -1,9 +1,10 @@
 .ask-form {
   background-color: white;
   text-align: center;
-  // width: 400px;
   margin: 0 auto;
   max-width: 480px !important;
+  
+  @include block-wrapper;
 
   &__title {
     padding: 15px;
@@ -48,10 +49,5 @@
     &:focus {
       outline: none;
     }
-  }
-
-  @include respond-to($tablet) {
-    @include container-create($tablet);
-    margin-top: $topMargin;
   }
 }

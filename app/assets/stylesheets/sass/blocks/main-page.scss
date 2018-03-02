@@ -2,6 +2,10 @@
   margin-top: 0;
   background-color: $orange;
 
+  &--offset-top {
+    margin-top: 20px !important;
+  }
+
   &--view {
     display: block;
     width: 75px;
@@ -62,6 +66,7 @@
     text-align: center;
 
     @include respond-to($tablet) {
+      @include container-create($tablet);
       display: flex;
       justify-content: space-around;
     }

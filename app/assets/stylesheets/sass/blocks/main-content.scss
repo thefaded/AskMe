@@ -1,0 +1,9 @@
+.main-content {
+    @include block-wrapper;
+
+    text-align: center;
+    
+    @include respond-to($md) {
+        @include container-create($tablet);
+    }
+}

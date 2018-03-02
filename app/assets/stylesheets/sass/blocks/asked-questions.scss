@@ -1,5 +1,6 @@
 .asked-questions {
   background-color: #fff;
+  @include block-wrapper;
 
   &__low {
     display: flex;
@@ -65,7 +66,6 @@
 
   @include respond-to($tablet) {
     @include container-create($tablet);
-    margin-top: $topMargin;
 
     &__title {
       text-align: left;
